@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "NRK Speedster",
+  "version": "0.1.0",
+  "description": "Choose a playback speed for NRK TV Player",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["*://tv.nrk.no/*", "*://*.nrk.no/*"],
+  "action": {
+    "default_title": "Speedster",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://tv.nrk.no/*", "*://*.nrk.no/*"],
+      "js": ["dist/speed.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

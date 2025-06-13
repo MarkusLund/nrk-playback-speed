@@ -1,0 +1,13 @@
+{
+  "name": "nrk-playback-speed",
+  "version": "0.1.0",
+  "description": "Choose a playback speed for NRK TV Player",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "typescript": "^5.3.3"
+  }
+}
