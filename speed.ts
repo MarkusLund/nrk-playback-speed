@@ -86,7 +86,7 @@ function createSpeedIndicator(): HTMLElement | null {
   });
 
   speedIndicator.addEventListener("mouseleave", () => {
-    speedIndicator.style.backgroundColor = "none";
+    speedIndicator.style.backgroundColor = "transparent";
     speedIndicator.style.color = "rgb(var(--color-theme-white))";
   });
 
