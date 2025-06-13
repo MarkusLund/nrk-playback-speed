@@ -67,6 +67,7 @@ function createSpeedIndicator(): HTMLElement | null {
     font-size: 12px;
     font-weight: 500;
     opacity: 0;
+    cursor: pointer;
     transition: opacity 0.2s ease;
     pointer-events: none;
     user-select: none;
@@ -74,13 +75,66 @@ function createSpeedIndicator(): HTMLElement | null {
     order: 0;
   `;
 
-  // Insert before the flex-grow-1 spacer element
-  const spacer = controlBar.querySelector(".flex-grow-1");
-  if (spacer) {
-    controlBar.insertBefore(speedIndicator, spacer);
+  // Place indicator at bottom-right control bar, just left of subtitle/settings and fullscreen buttons
+  const subtitleBtn = controlBar.querySelector(
+    'button[value="settings"], button[type="settings-button"], [aria-label*="Innstillinger" i]'
+  );
+  const fullscreenBtn = controlBar.querySelector(
+    'button[type="fullscreen-button"], [aria-label*="Fullskjerm" i]'
+  );
+
+  if (subtitleBtn && subtitleBtn.parentNode) {
+    subtitleBtn.parentNode.insertBefore(speedIndicator, subtitleBtn);
+  } else if (fullscreenBtn && fullscreenBtn.parentNode) {
+    fullscreenBtn.parentNode.insertBefore(speedIndicator, fullscreenBtn);
   } else {
-    // Fallback: insert at the beginning
-    controlBar.insertBefore(speedIndicator, controlBar.firstChild);
+    // Fallback: append at end of control bar
+    controlBar.appendChild(speedIndicator);
+  }
+
+  // Click handler to cycle through speeds
+  const speeds = [1, 1.25, 1.5, 2];
+  speedIndicator.addEventListener("click", (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    const currentRate = parseFloat(
+      speedIndicator.textContent?.replace("×", "") || "1"
+    );
+    const currentIndex = speeds.indexOf(currentRate);
+    const nextRate = speeds[(currentIndex + 1) % speeds.length];
+
+    // Persist and apply new speed
+    chrome.storage.sync.set({
+      playbackSpeed: nextRate.toString(),
+      rate: nextRate.toString(),
+    });
+    setPlaybackSpeed(nextRate);
+  });
+
+  // Hover behavior to follow NRK control bar visibility
+  const videoContainer = document.querySelector(
+    "tv-player-container"
+  ) as HTMLElement | null;
+  const controlsArea = document.querySelector("tv-player-controls");
+
+  const showIndicator = () => {
+    speedIndicator.style.opacity = "1";
+    speedIndicator.style.pointerEvents = "auto";
+  };
+
+  const hideIndicator = () => {
+    speedIndicator.style.opacity = "0";
+    speedIndicator.style.pointerEvents = "none";
+  };
+
+  if (videoContainer) {
+    videoContainer.addEventListener("mouseenter", showIndicator);
+    videoContainer.addEventListener("mouseleave", hideIndicator);
+  }
+
+  if (controlsArea) {
+    controlsArea.addEventListener("mouseenter", showIndicator);
+    controlsArea.addEventListener("mouseleave", hideIndicator);
   }
 
   return speedIndicator;
@@ -97,12 +151,6 @@ function updateSpeedIndicator(speed: number): void {
   }
 
   indicator.textContent = `${speed}×`;
-
-  // Show indicator briefly when speed changes
-  indicator.style.opacity = "1";
-  setTimeout(() => {
-    indicator.style.opacity = "0";
-  }, 2000);
 }
 
 // Function to setup hover behavior for controls
@@ -157,7 +205,8 @@ function initializeSpeedIndicator(): void {
       const indicator = createSpeedIndicator();
       if (indicator) {
         updateSpeedIndicator(parseFloat(speed));
-        setupControlsHover();
+        // ensure visible changes with hover
+        // (setupControlsHover is now integrated inside createSpeedIndicator)
       }
     });
   }, 1000);
