@@ -52,28 +52,43 @@ function createSpeedIndicator(): HTMLElement | null {
   // Create speed indicator element
   const speedIndicator = document.createElement("div");
   speedIndicator.id = "nrk-speed-indicator";
+  speedIndicator.classList.add("tv-player-button");
   speedIndicator.style.cssText = `
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 40px;
-    height: 32px;
-    padding: 0 8px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     margin: 0 4px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 4px;
+    background: none;
+    color: rgb(var(--color-theme-white));
+    border-radius: .375rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
+    line-height: 1;
     opacity: 0;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
     pointer-events: none;
     user-select: none;
     z-index: 1000;
     order: 0;
+    vertical-align: middle;
+    align-self: center;
   `;
+
+  // Add hover effects
+  speedIndicator.addEventListener("mouseenter", () => {
+    speedIndicator.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+    speedIndicator.style.color = "#4A9EFF";
+  });
+
+  speedIndicator.addEventListener("mouseleave", () => {
+    speedIndicator.style.backgroundColor = "none";
+    speedIndicator.style.color = "rgb(var(--color-theme-white))";
+  });
 
   // Place indicator at bottom-right control bar, just left of subtitle/settings and fullscreen buttons
   const subtitleBtn = controlBar.querySelector(
