@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "NRK Speedster",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Choose a playback speed for NRK TV Player",
   "permissions": [
     "scripting",
