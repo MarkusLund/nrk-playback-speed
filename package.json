@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "bump": "node bump-version.js && npm run build"
+    "bump": "node bump-version.js && npm run build",
+    "package": "npm run build && rm -rf chrome-store-package && mkdir -p chrome-store-package && cp manifest.json popup.html chrome-store-package/ && cp -r dist/ icons/ chrome-store-package/ && cd chrome-store-package && zip -r ../nrk-playback-speed-extension.zip . && cd .. && echo '✅ Extension packaged as nrk-playback-speed-extension.zip'"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.260",

@@ -57,3 +57,7 @@ temp/
 *.crx
 *.pem
 *.zip
+
+# Chrome extension packaging
+chrome-store-package/
+nrk-playback-speed-extension.zip
