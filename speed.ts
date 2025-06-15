@@ -108,7 +108,7 @@ function createSpeedIndicator(): HTMLElement | null {
   }
 
   // Click handler to cycle through speeds
-  const speeds = [1, 1.25, 1.5, 2];
+  const speeds = [1, 1.25, 1.5, 1.75, 2];
   speedIndicator.addEventListener("click", (event) => {
     event.stopPropagation();
     event.preventDefault();
