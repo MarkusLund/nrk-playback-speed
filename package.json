@@ -18,11 +18,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarkusLund/nrk-playback-speed.git"
+    "url": "https://github.com/MarkusLund/video-playback-speed.git"
   },
-  "homepage": "https://github.com/MarkusLund/nrk-playback-speed#readme",
+  "homepage": "https://github.com/MarkusLund/video-playback-speed#readme",
   "bugs": {
-    "url": "https://github.com/MarkusLund/nrk-playback-speed/issues"
+    "url": "https://github.com/MarkusLund/video-playback-speed/issues"
   },
   "scripts": {
     "build": "tsc",
