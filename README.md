@@ -4,6 +4,12 @@ A Chrome extension that allows you to control playback speed on **YouTube** and 
 
 **Norwegian**: En Chrome-utvidelse som lar deg kontrollere avspillingshastigheten på YouTube og NRK TV.
 
+## Screenshots
+
+| YouTube | NRK TV |
+|---------|--------|
+| ![YouTube player with speed control](image_youtube.png) | ![NRK player with speed control](image.png) |
+
 ## Features
 
 - 🎬 Control video playback speed on YouTube and NRK TV
