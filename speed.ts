@@ -74,10 +74,10 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 1;
-    opacity: 0;
+    opacity: 1;
     cursor: pointer;
     transition: all 0.2s ease;
-    pointer-events: none;
+    pointer-events: auto;
     user-select: none;
     z-index: 1000;
     order: 0;
@@ -114,7 +114,7 @@
     }
 
     // Click handler to cycle through speeds
-    const speeds = [1, 1.25, 1.5, 1.75, 2];
+    const speeds = [1, 1.25, 1.5, 1.75, 2, 2.5, 3];
     speedIndicator.addEventListener("click", (event) => {
       event.stopPropagation();
       event.preventDefault();
@@ -122,7 +122,9 @@
         speedIndicator.textContent?.replace("×", "") || "1"
       );
       const currentIndex = speeds.indexOf(currentRate);
-      const nextRate = speeds[(currentIndex + 1) % speeds.length];
+      const nextIndex =
+        currentIndex === -1 ? 0 : (currentIndex + 1) % speeds.length;
+      const nextRate = speeds[nextIndex];
 
       // Persist and apply new speed
       chrome.storage.sync.set({
@@ -174,46 +176,6 @@
     indicator.textContent = `${speed}×`;
   }
 
-  // Function to setup hover behavior for controls
-  function setupControlsHover(): void {
-    const indicator = document.getElementById("nrk-speed-indicator");
-    if (!indicator) return;
-
-    // Find the main video container or player
-    const videoElement = document.querySelector("video");
-    if (!videoElement) return;
-
-    const videoContainer = videoElement.closest(
-      'tv-player-container, tv-player, [class*="player"]'
-    );
-    if (!videoContainer) return;
-
-    // Show speed indicator when hovering over video area
-    const showIndicator = () => {
-      indicator.style.opacity = "1";
-    };
-
-    const hideIndicator = () => {
-      indicator.style.opacity = "0";
-    };
-
-    (videoContainer as HTMLElement).addEventListener(
-      "mouseenter",
-      showIndicator
-    );
-    (videoContainer as HTMLElement).addEventListener(
-      "mouseleave",
-      hideIndicator
-    );
-
-    // Also show when hovering over controls specifically
-    const controlsArea = document.querySelector("tv-player-controls");
-    if (controlsArea) {
-      controlsArea.addEventListener("mouseenter", showIndicator);
-      controlsArea.addEventListener("mouseleave", hideIndicator);
-    }
-  }
-
   // Enhanced function to initialize speed indicator
   function initializeSpeedIndicator(): void {
     // Remove any existing duplicate indicators first
@@ -234,8 +196,6 @@
         const indicator = createSpeedIndicator();
         if (indicator) {
           updateSpeedIndicator(parseFloat(speed));
-          // ensure visible changes with hover
-          // (setupControlsHover is now integrated inside createSpeedIndicator)
         }
       });
     }, 1000);
