@@ -6,8 +6,8 @@ A Chrome extension that allows you to control playback speed on **YouTube** and 
 
 ## Screenshots
 
-| YouTube | NRK TV |
-|---------|--------|
+| YouTube                                                 | NRK TV                                      |
+| ------------------------------------------------------- | ------------------------------------------- |
 | ![YouTube player with speed control](image_youtube.png) | ![NRK player with speed control](image.png) |
 
 ## Features
