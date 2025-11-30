@@ -1,7 +1,29 @@
 {
   "name": "video-playback-speed",
   "version": "0.2.0",
-  "description": "Control playback speed on YouTube and NRK TV",
+  "description": "Free YouTube playback speed control - Chrome extension to bypass Premium speed restrictions. Also supports NRK TV. Control video speed with in-player button.",
+  "keywords": [
+    "youtube",
+    "youtube-speed",
+    "playback-speed",
+    "video-speed",
+    "chrome-extension",
+    "youtube-premium",
+    "html5-video",
+    "nrk",
+    "video-controller",
+    "speed-control"
+  ],
+  "author": "Markus Lund",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarkusLund/nrk-playback-speed.git"
+  },
+  "homepage": "https://github.com/MarkusLund/nrk-playback-speed#readme",
+  "bugs": {
+    "url": "https://github.com/MarkusLund/nrk-playback-speed/issues"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",

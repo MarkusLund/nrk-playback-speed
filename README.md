@@ -1,8 +1,16 @@
 # Video Playback Speed Controller
 
-A Chrome extension that allows you to control playback speed on **YouTube** and **NRK TV**.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-green.svg)](https://developer.chrome.com/docs/extensions/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 
-**Norwegian**: En Chrome-utvidelse som lar deg kontrollere avspillingshastigheten på YouTube og NRK TV.
+**Free YouTube playback speed control** — bypass YouTube Premium speed restrictions! A Chrome extension that lets you control video playback speed on **YouTube** and **NRK TV** using the native HTML5 video API.
+
+> 🚀 **YouTube removed free playback speed controls?** This extension brings them back — and adds speeds up to 3×!
+
+**Norwegian / Norsk**: Gratis avspillingshastighet for YouTube — omgå YouTube Premium-begrensninger! En Chrome-utvidelse som lar deg kontrollere avspillingshastigheten på YouTube og NRK TV.
+
+**Keywords**: youtube speed control, youtube playback speed, youtube 2x speed, youtube 3x speed, video speed controller, youtube premium alternative, free youtube speed, nrk tv speed, html5 video speed, chrome extension video speed
 
 ## Screenshots
 
@@ -12,11 +20,13 @@ A Chrome extension that allows you to control playback speed on **YouTube** and 
 
 ## Features
 
-- 🎬 Control video playback speed on YouTube and NRK TV
-- ⚡ Speed options from 1× to 3× (including 2.5× and 3× for faster viewing)
-- 🎯 On-player speed indicator button that cycles through speeds on click
-- 💾 Remembers your speed preference across sessions
-- 🔄 Works with dynamically loaded videos (SPA navigation)
+- 🎬 **Free YouTube speed control** — no Premium subscription required
+- ⚡ **Extended speeds**: 1×, 1.25×, 1.5×, 1.75×, 2×, 2.5×, 3× (faster than YouTube allows!)
+- 🎯 **In-player button** — click to cycle through speeds without leaving the video
+- 💾 **Remembers your preference** — speed syncs across all your devices via Chrome
+- 🔄 **Works everywhere** — handles YouTube's SPA navigation and dynamic video loading
+- 🔓 **Cannot be blocked** — uses native HTML5 `playbackRate` API that websites can't restrict
+- 🇳🇴 **NRK TV support** — also works on Norwegian Broadcasting (NRK) videos
 
 ## Supported Sites
 
@@ -54,7 +64,23 @@ A Chrome extension that allows you to control playback speed on **YouTube** and 
 
 ## Why This Extension?
 
-YouTube has placed playback speed controls behind a paywall (YouTube Premium). This extension uses the browser's native `HTMLVideoElement.playbackRate` API, which **cannot be restricted** by any website. It's a standard web API that works on any HTML5 video.
+### YouTube Speed Control Without Premium
+
+YouTube has placed playback speed controls behind a paywall (YouTube Premium). Many users want to:
+
+- Watch educational videos faster (2× or 3× speed)
+- Save time on long tutorials and lectures
+- Control playback speed without paying for Premium
+
+This extension uses the browser's native `HTMLVideoElement.playbackRate` API, which **cannot be restricted** by any website. It's a standard web API built into every browser.
+
+### How is this different from other extensions?
+
+- ✅ **Lightweight** — minimal code, no bloat
+- ✅ **Open source** — fully transparent, no tracking
+- ✅ **In-player controls** — no need to open popup menus
+- ✅ **Higher speeds** — go up to 3× (YouTube only offers up to 2×)
+- ✅ **Works on NRK** — bonus support for Norwegian viewers
 
 ## Development
 
@@ -125,7 +151,7 @@ This works because `playbackRate` is a standard HTML5 Video API that browsers ex
 
 ## License
 
-This project is open source. Please check the license file for details.
+This project is licensed under the [MIT License](LICENSE) — free for personal and commercial use.
 
 ## Support
 
@@ -138,4 +164,10 @@ If you encounter any issues:
 
 ---
 
-**Note**: This extension is unofficial and not affiliated with YouTube, Google, or NRK (Norwegian Broadcasting Corporation).
+## Related Keywords
+
+`youtube speed control` `youtube playback speed extension` `youtube 2x speed free` `youtube 3x speed` `video speed controller chrome` `youtube premium alternative` `free youtube speed control` `html5 video playback rate` `nrk tv hastighet` `avspillingshastighet youtube` `chrome extension video speed`
+
+---
+
+**Disclaimer**: This extension is unofficial and not affiliated with YouTube, Google, or NRK (Norwegian Broadcasting Corporation). It uses standard web APIs that are part of every modern browser.
