@@ -1,16 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "NRK Playback Speed / Avspillingshastighet",
-  "version": "0.1.6",
-  "description": "Choose a playback speed for NRK TV Player",
-  "permissions": [
-    "scripting",
-    "activeTab",
-    "storage"
-  ],
+  "name": "Video Playback Speed Controller",
+  "version": "0.2.0",
+  "description": "Control playback speed on YouTube and NRK TV",
+  "permissions": ["scripting", "activeTab", "storage"],
   "host_permissions": [
     "*://tv.nrk.no/*",
-    "*://*.nrk.no/*"
+    "*://*.nrk.no/*",
+    "*://www.youtube.com/*",
+    "*://youtube.com/*"
   ],
   "action": {
     "default_title": "Speedster",
@@ -18,13 +16,13 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://tv.nrk.no/*",
-        "*://*.nrk.no/*"
-      ],
-      "js": [
-        "dist/speed.js"
-      ],
+      "matches": ["*://tv.nrk.no/*", "*://*.nrk.no/*"],
+      "js": ["dist/speed.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*"],
+      "js": ["dist/speed-youtube.js"],
       "run_at": "document_idle"
     }
   ]

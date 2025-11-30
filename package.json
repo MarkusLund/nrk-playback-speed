@@ -1,7 +1,7 @@
 {
-  "name": "nrk-playback-speed",
-  "version": "0.1.6",
-  "description": "Choose a playback speed for NRK TV Player",
+  "name": "video-playback-speed",
+  "version": "0.2.0",
+  "description": "Control playback speed on YouTube and NRK TV",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
